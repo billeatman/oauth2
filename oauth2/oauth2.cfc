@@ -1,19 +1,17 @@
 <cfcomponent displayname="Oauth2" output="false">
 
-<cfset variables = {
-	client_id = "",
-	client_secret = "",
-	redirect_uri = "",
-	scope = "",
-	state = "",
-	access_type = "",
-	approval_prompt = "",
-	base_auth_endpoint = "",
+<cfset variables.client_id = "">
+<cfset variables.client_secret = "">
+<cfset variables.redirect_uri = "">
+<cfset variables.scope = "">
+<cfset variables.state = "">
+<cfset variables.access_type = "">
+<cfset variables.approval_prompt = "">
+<cfset variables.base_auth_endpoint = "">
 <!--- Auth details from the authentication --->
 <!---	access_token = "",
 	refresh_token = "", --->
-	token_struct = structNew()
-}>
+<cfset variables.token_struct = structNew()>
 
 <cffunction name="GetTokenStruct" access="public" returntype="struct" output="false" hint="returns the oauth token structure">
 	<cfreturn variables.token_struct>
@@ -101,7 +99,7 @@
 	
 <cffunction name="GetAccessToken" access="public" output="false" returntype="Struct" hint="This method exchanges the authorization code for an access token and (where present) a refresh token.">
 	<cfargument name="code" type="string" required="yes" hint="The returned authorization code.">
-	
+
 	<cfset local.strURL = variables.base_auth_endpoint & "token">
 	<cfhttp url="#local.strURL#" method="post">
 		<cfhttpparam name="code" 			type="formField" value="#arguments.code#">

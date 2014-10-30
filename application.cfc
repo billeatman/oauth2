@@ -23,7 +23,7 @@
 			<cfset application.oauth2 = new oauth2.oauth2(
 				client_id 		=   'YOUR %Client ID%',
 				client_secret 	= 	'YOUR %Client secret%',
-				redirect_uri	=	'http://localhost/GoogleCal/oauth2/index.cfm',
+				redirect_uri	=	'http://localhost/oauth2/index.cfm',
 				scope           =   'https://www.googleapis.com/auth/calendar',
 				state			=	'',
 				access_type		=	'offline', <!--- Use offline for refresh tokens --->
@@ -42,6 +42,8 @@
 		
 			<cfif structKeyExists(URL, 'reinit')>
 				<cfset onApplicationStart() />
+				<cfdump var="reinit">
+				<cfabort>
 			</cfif>
 	
 		<cfreturn true />
