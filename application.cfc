@@ -42,8 +42,6 @@
 		
 			<cfif structKeyExists(URL, 'reinit')>
 				<cfset onApplicationStart() />
-				<cfdump var="reinit">
-				<cfabort>
 			</cfif>
 	
 		<cfreturn true />
