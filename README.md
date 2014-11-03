@@ -8,6 +8,10 @@ For an example, visit the example project
 
 https://github.com/billeatman/oauth2-Examples.git
 
+# forgebox #
+
+box install oauth2
+
 Contributors:
 
 Author: William Eatman @billeatman
